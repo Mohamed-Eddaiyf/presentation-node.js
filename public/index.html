@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow - Demo Node.js</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Mini-projet pratique</span>
+        <h1>TaskFlow</h1>
+        <p>Votre application de gestion de votre taches quotidiennes.</p>
+      </div>
+
+      <div class="server-card">
+        <span class="dot"></span>
+        <strong>Serveur actif</strong>
+        <small>http://localhost:3000</small>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Statistiques des taches">
+      <article><span id="total-count">0</span><small>Total</small></article>
+      <article><span id="todo-count">0</span><small>A faire</small></article>
+      <article><span id="done-count">0</span><small>Terminees</small></article>
+    </section>
+
+    <section class="panel">
+      <form id="task-form" class="task-form">
+        <input id="task-title" type="text" placeholder="Ecrivez le nom de la tache" autocomplete="off" required>
+
+        <select id="task-priority" aria-label="Priorite">
+          <option value="medium">Priorite moyenne</option>
+          <option value="high">Priorite haute</option>
+          <option value="low">Priorite basse</option>
+        </select>
+
+        <input id="task-date" type="date" aria-label="Date limite">
+        <button type="submit">Ajouter</button>
+      </form>
+
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Rechercher une tache...">
+
+        <div class="filters" role="group" aria-label="Filtres">
+          <button class="filter active" data-filter="all">Toutes</button>
+          <button class="filter" data-filter="todo">A faire</button>
+          <button class="filter" data-filter="done">Terminees</button>
+        </div>
+      </div>
+
+      <p id="feedback" class="feedback" role="status"></p>
+      <ul id="task-list" class="task-list"></ul>
+
+      <div id="empty-state" class="empty-state" hidden>
+        Aucune tache a afficher. Ajoute une tache pour tester l API POST.
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
